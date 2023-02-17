@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /* Game Design -- Bullet Hell Project
-by: Kora Hughes, Shaur Kumar
+by: Kora Hughes, Shaur Kumar, Emil Cheung
 
 */
 
