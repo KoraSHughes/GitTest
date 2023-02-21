@@ -4,11 +4,11 @@ Bullet Hell-like SHMUP
 Ideas: 
 - Wizard theme, beginning middle and end for story enemies
 - Enemy types:
-    - Lower enemy type that moves straight
-    - Middle enemy type with three variants that shoots laser
+    - Lower enemy type that moves straight (Troll)
+    - Middle enemy type with three variants that shoots laser (Slime)
         - Red, Green, Blue enemy
         - Elemental, have to match the attack with respective enemy type
-    - Higher enemy type that switches colors and has health
+    - Higher enemy type that switches colors and has health (Dragon)
         - Zig-zag pattern across screen
 - Multiple Weapon types in different colors
     - Red attack
