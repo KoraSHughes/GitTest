@@ -6,14 +6,14 @@ Ideas:
 - Enemy types:
     - Lower enemy type that moves straight
     - Middle enemy type with three variants that shoots laser
-        - Red, Yellow, Blue enemy
+        - Red, Green, Blue enemy
         - Elemental, have to match the attack with respective enemy type
     - Higher enemy type that switches colors and has health
         - Zig-zag pattern across screen
 - Multiple Weapon types in different colors
     - Red attack
     - Blue attack
-    - Yellow attack
+    - Green attack
     - Color of wizard indicates which one you are on
 - Stages:
     - Stage 1 is a barrage of the lower enemy types, end on the middle enemy type
