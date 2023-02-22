@@ -59,5 +59,21 @@ public class GameManager : MonoBehaviour
                 Pause();
             }
         }
+
+        scoreUI.text = "SCORE: " + score;
+        healthUI.text = "HEALTH: " + health;
+        pauseUI.SetActive(false);
+
+    }
+
+
+
+
+    public void handleContactAttack(int dmg) {
+        health -= dmg;
+    }
+
+    public void handleLaserAttack(int dmg) {
+        health -= dmg;
     }
 }

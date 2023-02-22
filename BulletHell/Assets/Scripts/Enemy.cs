@@ -3,19 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-
-
 public class Enemy : MonoBehaviour
 {
-    protected float speed_x = 1f;
-    protected float speed_y = 1f;
-    protected int health = 1;
-    protected int pointVal = 1;
-    protected float attackInterval = 1.0f;
+    public float speed_x = 1f;
+    public float speed_y = 0f;
+    public int health = 1;
+    public int pointVal = 1;
 
-    protected float secSinceLastAttack = 0.0f;
-
-    public char movementDirection = 'H'; // either Vertical or Horizontal.
+    public int contactDamage = 10;
+    public string variant = "N/A";
     
     public GameObject explosion;
     GameManager _gameManager;
@@ -26,7 +22,7 @@ public class Enemy : MonoBehaviour
     protected void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _rigidbody2D.AddForce(new Vector2(-speed, 0));
+        _rigidbody2D.AddForce(new Vector2(-speed_x, 0));
         _gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
@@ -42,30 +38,49 @@ public class Enemy : MonoBehaviour
     // handles enemy movement behavior.
     protected void handle_movement()
     {
-        float change_dir = 1f;
         if (collision_check_for_movement) {
-            change_dir = -1f;
+            // change direction if collided with an upper or lower wall.
+            speed_y = speed_y * -1f;
             collision_check_for_movement = false;
         }
-        _rigidbody2D.velocity = new Vector2(speed_x, speed_y * change_dir);
+        _rigidbody2D.velocity = new Vector2(speed_x, speed_y);
     }
 
-    // void Update() {}
+    void Update()
+    {
+        check_and_handle_death();
+        handle_movement();
+    }
 
-    private void OnTriggerEnter2D(Collider2D col) {
-        if (col.CompareTag("Bullet")) {
+    // private void OnTriggerEnter2D(Collider2D col) {
+    //     Debug.Log("WAA");
+    //     if (col.CompareTag("Bullet")) {
+    //         health -= 10;
+    //         Destroy(col.gameObject);
+    //     } else {
+    //         collision_check_for_movement = true;
+    //     }
+
+    //     if (col.CompareTag("End")) {
+    //         Destroy(gameObject);
+    //     }
+    // }
+
+    private void OnCollisionEnter2D(Collision2D col) {
+        if (col.gameObject.CompareTag("Bullet")) {
             health -= 10;
             Destroy(col.gameObject);
-        } else {
+        } else if (col.gameObject.CompareTag("Player")) {
+            Debug.Log("Contact damage");
+            _gameManager.handleContactAttack(contactDamage);
+        }
+        
+        else {
             collision_check_for_movement = true;
         }
-        if (col.CompareTag("End")) {
-            Destroy(gameObject);
-        }
-    }
 
-    protected void attack()
-    {
-        Debug.Log("Enemy attacked...");
+        // if (col.gameObject.CompareTag("End")) {
+        //     Destroy(gameObject);
+        // }
     }
 }
