@@ -1,0 +1,139 @@
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+
+
+// // base class of different enemy types...
+// public class Enemy : MonoBehaviour
+// {
+
+//     // value that determines difficulty of enemy
+//     public string difficulty = "EASY";
+//     private string color = "RED";
+
+//     int speed = 50;
+//     int health = 30;
+//     int pointVal = 10;
+//     float attackIntervalSec = 5f;
+    
+//     public GameObject explosion;
+//     GameManager _gameManager;
+//     Rigidbody2D _rigidbody2D;
+
+//     // private values.
+//     private float secSinceLastAttack = 0.0f;
+
+//     void Start()
+//     {
+//         _rigidbody2D = GetComponent<Rigidbody2D>();
+//         _rigidbody2D.AddForce(new Vector2(-speed, 0));
+//         _gameManager = GameObject.FindObjectOfType<GameManager>();
+//         switch(difficulty) {
+//             case("EASY"):
+//                 speed = 50;
+//                 health = 30;
+//                 pointVal = 10;
+//                 attackIntervalSec = 3f;
+//                 break;
+//             case("NORM"):
+//                 speed = 60;
+//                 health = 40;
+//                 pointVal = 15;
+//                 attackIntervalSec = 5f;
+//                 break;
+//             case("HARD"):
+//                 speed = 70;
+//                 health = 50;
+//                 pointVal = 20;
+//                 attackIntervalSec = 4f;
+//                 break;
+//             default:
+//                 break;
+//         }
+//     }
+
+//     void Update() {
+//         if (health <= 0) {
+//             _gameManager.AddScore(pointVal);
+//             Instantiate(explosion, transform.position, Quaternion.identity);
+//             Destroy(gameObject);
+//         }
+
+//         // update position at each tick.
+//         EnemyMovementUpdate();
+
+//         // update attack at each tick.
+//         secSinceLastAttack += Time.deltaTime;
+//         if (secSinceLastAttack >= attackIntervalSec) {
+//             EnemyAttackUpdate();
+//             secSinceLastAttack = 0f;
+//         }
+//     }
+
+//     void EnemyMovementUpdate() {
+//         switch(difficulty) {
+//             case("EASY"):
+//                 MovementEasy();
+//                 break;
+//             case("NORM"):
+//                 MovementNormal();
+//                 break;
+//             case("HARD"):
+//                 MovementHard();
+//                 break;
+//             default:
+//                 break;
+//         }
+//     }
+//     void EnemyAttackUpdate() {
+//         switch(difficulty) {
+//             case("EASY"):
+//                 MovementEasy();
+//                 break;
+//             case("NORM"):
+//                 MovementNormal();
+//                 break;
+//             case("HARD"):
+//                 MovementHard();
+//                 break;
+//             default:
+//                 break;
+//         }
+//     }
+
+//     void MovementEasy() {
+//         // moves straight. From left to right?
+//     }
+//     void MovementNormal() {
+//         // moves straight.
+//     }
+//     void MovementHard() {
+//         // Zig-zag pattern across screen
+//     }
+
+//     void AttackEasy() {
+//         // ...
+//     }
+//     void AttackNormal() {
+//         // LAZERS
+//         // red gren blue emeny
+//     }
+//     void AttackHard() {
+//         // also lasers?
+//     }
+
+//     void updateColor(string newColor) {
+//         color = newColor;
+//     }
+
+//     protected void OnTriggerEnter2D(Collider2D col) {
+//         if (col.CompareTag("Bullet")) {
+//             health -= 10;
+//             Destroy(col.gameObject);
+//         }
+
+//         if (col.CompareTag("End")) {
+//             Destroy(gameObject);
+//         }
+//     }
+// }
