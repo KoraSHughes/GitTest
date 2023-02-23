@@ -41,12 +41,14 @@ public class GameManager : MonoBehaviour
         pauseUI.SetActive(false);
         Time.timeScale = 1f;
         pause = false;
+    }
 
     void Pause() {
         pauseUI.SetActive(true);
         Time.timeScale = 0f;
         pause = true;
     }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -57,19 +59,14 @@ public class GameManager : MonoBehaviour
                 Pause();
             }
         }
-
-        scoreUI.text = "SCORE: " + score;
-        healthUI.text = "HEALTH: " + health;
-        pauseUI.SetActive(false);
-
     }
 
-    public void handleContactAttack(int dmg) {
+/*     public void handleContactAttack(int dmg) {
         health -= dmg;
     }
 
     public void handleLaserAttack(int dmg) {
         health -= dmg;
 
-    }
+    } */
 }

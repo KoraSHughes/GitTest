@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
             Destroy(col.gameObject);
         } else if (col.gameObject.CompareTag("Player")) {
             Debug.Log("Contact damage");
-            _gameManager.handleContactAttack(contactDamage);
+            _gameManager.HealthDecr(contactDamage);
         }
         
         else {

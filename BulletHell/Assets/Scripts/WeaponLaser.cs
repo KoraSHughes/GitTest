@@ -81,7 +81,7 @@ public class WeaponLaser : MonoBehaviour
                 if (hit.collider.tag == "Player") {
                     if (allowDamage) {
                         Debug.Log("LaserAttack");
-                        _gameManager.handleLaserAttack(dmg);
+                        _gameManager.HealthDecr(dmg);
                         allowDamage = false;
                     }
                 }
