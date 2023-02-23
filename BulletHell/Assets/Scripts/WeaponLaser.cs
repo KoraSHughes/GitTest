@@ -67,17 +67,21 @@ public class WeaponLaser : MonoBehaviour
         line.enabled = true;
         while (laserOn)
         {
-            Ray2D ray = new Ray2D(transform.position, transform.forward);
+            // Ray2D ray = new Ray2D(transform.position, transform.forward);
+            
+            //  Vector3 direction = toPosition - fromPosition;
+            Ray2D ray = new Ray2D(transform.position, aimTowards.transform.position - transform.position);
             RaycastHit2D hit;
 
             line.SetPosition(0, ray.origin);
             line.SetPosition(
                 1, 
-                Vector2.MoveTowards(ray.origin, aimTowards.transform.position, laserLength)
+                Vector2.MoveTowards(ray.origin, aimTowards.transform.position - transform.position, laserLength)
             );
  
-            hit = Physics2D.Raycast(ray.origin, aimTowards.transform.position, laserLength);
+            hit = Physics2D.Raycast(ray.origin, aimTowards.transform.position - transform.position, laserLength);
             if (hit.collider) {
+                line.SetPosition(1, hit.point);
                 if (hit.collider.tag == "Player") {
                     if (allowDamage) {
                         Debug.Log("LaserAttack");

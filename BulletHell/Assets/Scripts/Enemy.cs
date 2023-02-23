@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public int pointVal = 1;
 
     public int contactDamage = 10;
+    public float allowDamageInterval = 1f;
     public string variant = "N/A";
     
     public GameObject explosion;
@@ -18,6 +19,8 @@ public class Enemy : MonoBehaviour
     Rigidbody2D _rigidbody2D;
 
     private bool collision_check_for_movement = false;
+    private bool allowDamage = true;
+    private float secSinceLastDamage = 0f;
 
     protected void Start()
     {
@@ -50,6 +53,14 @@ public class Enemy : MonoBehaviour
     {
         check_and_handle_death();
         handle_movement();
+
+        if (!allowDamage) {
+            secSinceLastDamage += Time.deltaTime;
+            if (secSinceLastDamage >= allowDamageInterval) {
+                allowDamage = true;
+                secSinceLastDamage = 0f;
+            }
+        }
     }
 
     // private void OnTriggerEnter2D(Collider2D col) {
@@ -70,9 +81,10 @@ public class Enemy : MonoBehaviour
         if (col.gameObject.CompareTag("Bullet")) {
             health -= 10;
             Destroy(col.gameObject);
-        } else if (col.gameObject.CompareTag("Player")) {
+        } else if (col.gameObject.CompareTag("Player") && allowDamage) {
             Debug.Log("Contact damage");
             _gameManager.HealthDecr(contactDamage);
+            allowDamage = false;
         }
         
         else {
