@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6176955077605507413}
   - component: {fileID: 6176955077605507412}
   - component: {fileID: 6176955077605507415}
-  - component: {fileID: 6176955077605507414}
+  - component: {fileID: 1077482066}
   m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6176955077605507414
+--- !u!114 &1077482066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6176955077605507417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ee4c0ee83abf4f4eb18671de927beaf, type: 3}
+  m_Script: {fileID: 11500000, guid: a7be887c578ac484980f0da7ef77f399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 0}
@@ -746,7 +746,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6176955077605507414}
+      - m_Target: {fileID: 1077482066}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -938,8 +938,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6176955077605507414}
-        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+      - m_Target: {fileID: 1077482066}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
