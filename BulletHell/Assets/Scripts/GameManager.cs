@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-/* Game Design -- Bullet Hell Project
-by: Kora Hughes, Shaur Kumar, Emil Cheung, Roger Li
-
-*/
-
 public class GameManager : MonoBehaviour
 {
     private int score = 0, health = 100;
@@ -46,14 +41,12 @@ public class GameManager : MonoBehaviour
         pauseUI.SetActive(false);
         Time.timeScale = 1f;
         pause = false;
-    }
 
     void Pause() {
         pauseUI.SetActive(true);
         Time.timeScale = 0f;
         pause = true;
     }
-
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -64,5 +57,19 @@ public class GameManager : MonoBehaviour
                 Pause();
             }
         }
+
+        scoreUI.text = "SCORE: " + score;
+        healthUI.text = "HEALTH: " + health;
+        pauseUI.SetActive(false);
+
+    }
+
+    public void handleContactAttack(int dmg) {
+        health -= dmg;
+    }
+
+    public void handleLaserAttack(int dmg) {
+        health -= dmg;
+
     }
 }
