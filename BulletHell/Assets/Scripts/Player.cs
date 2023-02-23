@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    int speed = 15;
+    int speed = 10;
     int health = 100;
     int bulletSpeed = 300;
     float time = 0f;
