@@ -939,9 +939,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8473024341900784080}
-        m_TargetAssemblyTypeName: Quit, Assembly-CSharp
-        m_MethodName: DoAQuit
+      - m_Target: {fileID: 1077482066}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

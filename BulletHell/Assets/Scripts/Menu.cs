@@ -16,6 +16,11 @@ public class Menu : MonoBehaviour
         _gameManager.GetComponent<GameManager>().Resume();
     }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void QuitGame() {
         Application.Quit();
     }
