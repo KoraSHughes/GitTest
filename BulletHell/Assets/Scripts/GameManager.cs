@@ -12,12 +12,12 @@ public class GameManager : MonoBehaviour
     public GameObject pauseUI;
 
     private void Awake() {
-        if (GameObject.FindObjectsOfType<GameManager>().Length > 1) {
-            Destroy(gameObject);
-        }
-        else {
-            DontDestroyOnLoad(gameObject);
-        }
+        // if (GameObject.FindObjectsOfType<GameManager>().Length > 1) {
+        //     Destroy(gameObject);
+        // }
+        // else {
+        //     DontDestroyOnLoad(gameObject);
+        // }
     }
 
     private void Start()
