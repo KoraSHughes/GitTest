@@ -8,7 +8,7 @@ public class WeaponLaser : MonoBehaviour
     LineRenderer line;
 
     public GameObject aimTowards;
-    public float laserLength = 2f;
+    public float laserLength = 4f;
     public float attackDuration = 2f;
     public float cooldownDuration = 1f;
     public float allowDamageInterval = 0.5f;
@@ -31,6 +31,7 @@ public class WeaponLaser : MonoBehaviour
         line = gameObject.GetComponent<LineRenderer>();
         line.enabled = false;
         _gameManager = GameObject.FindObjectOfType<GameManager>();
+        aimTowards = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -61,39 +62,4 @@ public class WeaponLaser : MonoBehaviour
         }
     }
 
-
-    IEnumerator FireLaser()
-    {
-        line.enabled = true;
-        while (laserOn)
-        {
-            // Ray2D ray = new Ray2D(transform.position, transform.forward);
-            
-            Vector2 aimAtPosition = aimTowards.transform.position;
-            Ray2D ray = new Ray2D(transform.position, aimTowards.transform.position - transform.position);
-            RaycastHit2D hit;
-
-            line.SetPosition(0, ray.origin);
-            line.SetPosition(
-                1, 
-                Vector2.MoveTowards(ray.origin, aimAtPosition - ray.origin, laserLength)
-            );
- 
-            hit = Physics2D.Raycast(ray.origin, aimAtPosition - ray.origin, laserLength);
-            if (hit.collider) {
-                line.SetPosition(1, hit.point);
-                if (hit.collider.tag == "Player") {
-                    if (allowDamage) {
-                        Debug.Log("LaserAttack");
-                        _gameManager.HealthDecr(dmg);
-                        allowDamage = false;
-                    }
-                }
-            }
-
-            yield return null;
-        }
-        allowDamage = true;
-        line.enabled = false;
-    }
 }

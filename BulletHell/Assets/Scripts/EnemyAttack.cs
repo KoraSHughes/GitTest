@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject[] _laserTypes;
+
     void Start()
     {
         

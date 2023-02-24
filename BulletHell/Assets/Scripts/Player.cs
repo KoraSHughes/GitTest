@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     int speed = 10;
-    int bulletSpeed = 300;
+    int bulletSpeed = 500;
     float time = 0f;
 
     public Transform spawnPoint;

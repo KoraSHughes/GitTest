@@ -10,8 +10,13 @@ public class Enemy : MonoBehaviour
     public int health = 1;
     public int pointVal = 1;
 
+    int bulletSpeed = 300;
+    float time = 0f;
+
     public int contactDamage = 10;
     public float allowDamageInterval = 1f;
+
+    public GameObject[] _laserTypes;
     public string variant = "N/A";
     
     public GameObject explosion;
@@ -29,6 +34,7 @@ public class Enemy : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _rigidbody2D.AddForce(new Vector2(-speed_x, 0));
         _gameManager = GameObject.FindObjectOfType<GameManager>();
+        time = 1.0f;
     }
 
     protected void check_and_handle_death()
@@ -57,6 +63,15 @@ public class Enemy : MonoBehaviour
         check_and_handle_death();
         handle_movement();
 
+        if(time > 0f)
+        {
+            time -= Time.deltaTime;
+        }
+
+        if(time <= 0)
+        {
+            
+        }
         if (!allowDamage) {
             secSinceLastDamage += Time.deltaTime;
             if (secSinceLastDamage >= allowDamageInterval) {
@@ -64,12 +79,6 @@ public class Enemy : MonoBehaviour
                 secSinceLastDamage = 0f;
             }
         }
-    }
-
-    IEnumerator SpriteFlash()
-    {
-        _player_sprite.enabled = !_player_sprite.enabled;
-        yield return new WaitForSeconds(0.5f);
     }
 
     // private void OnTriggerEnter2D(Collider2D col) {
@@ -94,9 +103,7 @@ public class Enemy : MonoBehaviour
             Debug.Log("Contact damage");
             _gameManager.HealthDecr(contactDamage);
             allowDamage = false;
-            _player_sprite = col.gameObject.GetComponent<SpriteRenderer>();
         }
-        
         else {
             collision_check_for_movement = true;
         }
