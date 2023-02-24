@@ -13,6 +13,6 @@ public class Quit : MonoBehaviour
 
     public void DoARestart()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Level1");
     }
 }
