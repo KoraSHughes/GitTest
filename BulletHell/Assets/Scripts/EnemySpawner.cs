@@ -14,13 +14,14 @@ public class EnemySpawner : MonoBehaviour
 
     int _enemyColor;
 
+    Vector2 spawnPos;
     IEnumerator Start()
     {
         if(SceneManager.GetActiveScene().name == "Level1")
         {
             for (int i = 0; i < 20; ++i) {
-                Vector2 spawnPos = new Vector2(Random.Range(11,15), Random.Range(-4f,4f));
-                _enemyColor = Random.Range(0, 2);
+                spawnPos = new Vector2(Random.Range(11,15), Random.Range(-4f,4f));
+                _enemyColor = Random.Range(0, 3);
                 Instantiate(enemyPrefab[_enemyColor], spawnPos, Quaternion.identity);
                 yield return new WaitForSeconds(1.5f);
             }
@@ -29,18 +30,18 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < 25; ++i)
             {
-                Vector2 spawnPos = new Vector2(Random.Range(11, 15), Random.Range(-4f, 4f));
+                spawnPos = new Vector2(Random.Range(11, 15), Random.Range(-4f, 4f));
                 _enemyType = Random.Range(0, 100);
                 if(_enemyType >= 40)
                 {
-                    Instantiate(enemyPrefab[0], spawnPos, Quaternion.identity);
-                    _enemyColor = Random.Range(0,2);
+                    //Instantiate(enemyPrefab[0], spawnPos, Quaternion.identity);
+                    _enemyColor = Random.Range(0,3);
                     Instantiate(enemyPrefab[_enemyColor], spawnPos, Quaternion.identity);
                 }
                 else if(_enemyType < 40)
                 {
-                    Instantiate(enemyPrefab[1], spawnPos, Quaternion.identity);
-                    _enemyColor = Random.Range(3, 5);
+                    //Instantiate(enemyPrefab[1], spawnPos, Quaternion.identity);
+                    _enemyColor = Random.Range(3, 6);
                     Instantiate(enemyPrefab[_enemyColor], spawnPos, Quaternion.identity);
                 }
                 yield return new WaitForSeconds(1.5f);
@@ -50,28 +51,33 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < 40; ++i)
             {
-                Vector2 spawnPos = new Vector2(Random.Range(11, 15), Random.Range(-4f, 4f));
+                spawnPos = new Vector2(Random.Range(11, 15), Random.Range(-4f, 4f));
                 _enemyType = Random.Range(0, 100);
-                if(_enemyType >= 50)
+                if(_enemyType >= 70)
                 {
-                    Instantiate(enemyPrefab[0], spawnPos, Quaternion.identity);
-                    _enemyColor = Random.Range(0,2);
+                    //Instantiate(enemyPrefab[0], spawnPos, Quaternion.identity);
+                    _enemyColor = Random.Range(0,3);
                     Instantiate(enemyPrefab[_enemyColor], spawnPos, Quaternion.identity);
                 }
-                else if(_enemyType < 50)
+                else if(_enemyType < 70)
                 {
-                    Instantiate(enemyPrefab[1], spawnPos, Quaternion.identity);
-                    _enemyColor = Random.Range(3, 5);
+                    //Instantiate(enemyPrefab[1], spawnPos, Quaternion.identity);
+                    _enemyColor = Random.Range(3, 6);
                     Instantiate(enemyPrefab[_enemyColor], spawnPos, Quaternion.identity);
                 }
                 yield return new WaitForSeconds(1f);
             }
+            spawnPos = new Vector2(11, 0);
+            Instantiate(enemyPrefab[6], spawnPos, Quaternion.identity);
         }
 
         while(true)
         {
-            yield return new WaitForSeconds(5f);
-            SceneManager.LoadScene(nextLevel);
+            if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+            {
+                yield return new WaitForSeconds(5f);
+                SceneManager.LoadScene(nextLevel);
+            }
         }
     }
 }

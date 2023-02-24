@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 237298508}
   - component: {fileID: 237298507}
+  - component: {fileID: 237298509}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -170,6 +171,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &237298509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237298506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a6a8e38baff641c981d9877636ff79f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab:
+  - {fileID: 3026108536712769126, guid: 25e84ada95e1e4b6fb10a6c14735ecfe, type: 3}
+  - {fileID: 3026108536712769126, guid: 99b23e152a6b84d67937ceb0ccbea28c, type: 3}
+  - {fileID: 3026108536712769126, guid: 6704b47730a4e42ce9be09480618a738, type: 3}
+  - {fileID: 84607346080817128, guid: aa52d944e703a4d7fa1ba5640b3658ea, type: 3}
+  - {fileID: 84607346080817128, guid: 2d370d1c31ae54ce2ac7f1755ef0c341, type: 3}
+  - {fileID: 84607346080817128, guid: e019f999edede49759c30d172a3be94b, type: 3}
+  - {fileID: 1645544356436955017, guid: d7959b5afd9d74aceb008b3138c3c4c5, type: 3}
+  nextLevel: Game Finish
 --- !u!1 &563719657
 GameObject:
   m_ObjectHideFlags: 0

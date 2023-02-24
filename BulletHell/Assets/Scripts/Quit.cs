@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Quit : MonoBehaviour
 {
@@ -9,4 +10,9 @@ public class Quit : MonoBehaviour
         Application.Quit();
     }
 #endif
+
+    public void DoARestart()
+    {
+        SceneManager.LoadScene("Level 1");
+    }
 }
