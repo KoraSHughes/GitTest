@@ -49,11 +49,13 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Level3")
         {
+            spawnPos = new Vector2(11, 0);
+            Instantiate(enemyPrefab[6], spawnPos, Quaternion.identity);
             for (int i = 0; i < 40; ++i)
             {
                 spawnPos = new Vector2(Random.Range(11, 15), Random.Range(-4f, 4f));
                 _enemyType = Random.Range(0, 100);
-                if(_enemyType >= 70)
+                if(_enemyType >= 70 && _enemyType <= 90)
                 {
                     //Instantiate(enemyPrefab[0], spawnPos, Quaternion.identity);
                     _enemyColor = Random.Range(0,3);
@@ -67,17 +69,9 @@ public class EnemySpawner : MonoBehaviour
                 }
                 yield return new WaitForSeconds(1f);
             }
-            spawnPos = new Vector2(11, 0);
-            Instantiate(enemyPrefab[6], spawnPos, Quaternion.identity);
         }
 
-        while(true)
-        {
-            if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
-            {
-                yield return new WaitForSeconds(5f);
-                SceneManager.LoadScene(nextLevel);
-            }
-        }
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(nextLevel);
     }
 }
