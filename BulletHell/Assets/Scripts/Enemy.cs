@@ -11,20 +11,27 @@ public class Enemy : MonoBehaviour
     public int pointVal = 1;
     public int enemyType = 0;
 
-    int bulletSpeed = 300;
+    int bulletSpeed = -300;
     float time = 0f;
 
     public int contactDamage = 10;
     public float allowDamageInterval = 1f;
 
-    public GameObject[] _laserTypes;
     public string variant = "N/A";
     
+    public GameObject[] bullPrfb;
+
+    public Transform spawnPoint;
+
     public GameObject explosion;
     GameManager _gameManager;
     Rigidbody2D _rigidbody2D;
 
-    SpriteRenderer _player_sprite;
+    int timesFired = 0;
+
+    SpriteRenderer _current_sprite;
+
+    GameObject newBull;
 
     private bool collision_check_for_movement = false;
     private bool allowDamage = true;
@@ -35,6 +42,7 @@ public class Enemy : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _rigidbody2D.AddForce(new Vector2(-speed_x, 0));
         _gameManager = GameObject.FindObjectOfType<GameManager>();
+        _current_sprite = GetComponent<SpriteRenderer>();
         time = 1.0f;
     }
 
@@ -69,9 +77,30 @@ public class Enemy : MonoBehaviour
             time -= Time.deltaTime;
         }
 
-        if(time <= 0)
+        if(time <= 0f)
         {
-            
+            if(_current_sprite.sprite.name == "SlimeRed")
+            {
+                newBull = Instantiate(bullPrfb[0], spawnPoint.position, Quaternion.identity);
+            }
+            else if(_current_sprite.sprite.name == "SlimeBlue")
+            {
+                newBull = Instantiate(bullPrfb[1], transform.position, Quaternion.identity);
+            }
+            else if(_current_sprite.sprite.name == "SlimeGreen")
+            {
+                newBull = Instantiate(bullPrfb[2], transform.position, Quaternion.identity);
+            }
+            if(newBull != null)
+            {
+                newBull.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletSpeed, 0));
+                time = Random.Range(0.3f, 1.2f);
+                timesFired += 1;
+            }
+            if(timesFired >= 3)
+            {
+                time = 3.0f;
+            }
         }
         if (!allowDamage) {
             secSinceLastDamage += Time.deltaTime;
@@ -79,6 +108,7 @@ public class Enemy : MonoBehaviour
                 allowDamage = true;
                 secSinceLastDamage = 0f;
             }
+            
         }
     }
 

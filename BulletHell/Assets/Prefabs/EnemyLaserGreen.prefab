@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8446979415427021735}
   - component: {fileID: 1499343475277781711}
   - component: {fileID: 5774306647607697837}
+  - component: {fileID: 2290478439385461747}
   m_Layer: 0
   m_Name: EnemyLaserGreen
   m_TagString: EnemyBullet
@@ -27,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8212188522001257556}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.2287428, y: 1.3516855, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7019303487072843097
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -137,3 +138,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 5
+--- !u!114 &2290478439385461747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8212188522001257556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd87b9743dcc47c89d0478b7bbf7550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  allowDamageInterval: 1
