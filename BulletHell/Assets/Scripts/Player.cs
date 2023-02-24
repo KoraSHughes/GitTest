@@ -19,11 +19,17 @@ public class Player : MonoBehaviour
     public AudioClip deathSfx;
     AudioSource _audioSource;
 
+    public string[] colorArray;  // color variant things
+    public Sprite[] spriteArray;
+    private SpriteRenderer _sprite_renderer;
+    private int currentIndex = 0;
+
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _audioSource = GetComponent<AudioSource>();
         _gameManager = GameObject.FindObjectOfType<GameManager>();
+        _sprite_renderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -48,6 +54,42 @@ public class Player : MonoBehaviour
             time = 0.3f;
             _audioSource.PlayOneShot(shootSfx);
         }
+        
+        if(Input.GetButtonDown("Fire3"))
+        {
+            StartCoroutine(SpriteSwap());
+        }
+
+        Vector2 pos = transform.position;
+        if (transform.position.y > 4.8f){
+            pos = new Vector2(transform.position.x, 4.8f);
+        }
+        else if (transform.position.y < -5){
+            pos = new Vector2(transform.position.x, -5);
+        }
+        if (transform.position.x > 9){
+            pos = new Vector2(9, transform.position.y);
+        }
+        else if (transform.position.x < -9){
+            pos = new Vector2(-9, transform.position.y);
+        }
+        transform.position = pos;
+    }
+
+    IEnumerator SpriteSwap()
+    {
+        currentIndex += 1;
+        if(currentIndex >= spriteArray.Length)
+        {
+            currentIndex = 0;
+        }
+        changeVariant(currentIndex);
+        yield return new WaitForSeconds(2);
+    }
+
+    void changeVariant(int newVariantInd)
+    {
+        _sprite_renderer.sprite = spriteArray[newVariantInd];
     }
 
     /*private void OnTriggerEnter2D(Collision2D col) {

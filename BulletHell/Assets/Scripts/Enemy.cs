@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public int health = 1;
     public int pointVal = 1;
 
-    int bulletSpeed = 300;
+    // int bulletSpeed = 300;
     float time = 0f;
 
     public int contactDamage = 10;
