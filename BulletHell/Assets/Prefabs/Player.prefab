@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2296595495460068347}
   - component: {fileID: 2296595495460068344}
   - component: {fileID: 7246769768524958053}
+  - component: {fileID: -7768619421353699771}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -138,9 +139,9 @@ MonoBehaviour:
   - {fileID: 1914419692934009327, guid: 72c51eeb701a54fef94c1572d119ecb2, type: 3}
   - {fileID: 1914419692934009327, guid: d6a840c5d69ae45a1928a796b915ecca, type: 3}
   explosion: {fileID: 8572920328984617681, guid: 2293e2a54d03ed94681195a19ab5ceaa, type: 3}
-  shootSfx: {fileID: 0}
-  dmgSfx: {fileID: 0}
-  deathSfx: {fileID: 0}
+  shootSfx: {fileID: 8300000, guid: f469033adf0ff02428431c8f625f8924, type: 3}
+  dmgSfx: {fileID: 8300000, guid: 6dc759177b51f40be9dbd3e669331f67, type: 3}
+  deathSfx: {fileID: 8300000, guid: d5e552f965261e645a4dbeb835e5238f, type: 3}
   colorArray:
   - red
   - blue
@@ -297,3 +298,15 @@ PolygonCollider2D:
       - {x: 0.29459113, y: -0.414547}
       - {x: 0.24779528, y: -0.2456365}
       - {x: 0.16747093, y: 0.20091447}
+--- !u!122 &-7768619421353699771
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2296595495460068345}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 2298478591
+  m_Size: 1
