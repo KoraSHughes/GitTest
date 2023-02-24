@@ -10,4 +10,15 @@ public class SceneChanger : MonoBehaviour
         Debug.Log("Yay, you did it! Moving to " + sceneToLoad);
         SceneManager.LoadScene(sceneToLoad);
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void Quit(){
+//#if !UNITY_WEBGL
+        Application.Quit();
+    }
+//#endif
 }

@@ -2914,8 +2914,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1844258070}
-        m_TargetAssemblyTypeName: Quit, Assembly-CSharp
-        m_MethodName: DoAQuit
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2934,6 +2934,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1844258065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4055b47189e04325858f71df4e200bb, type: 3}
+  m_Script: {fileID: 11500000, guid: d3fb88eb4a1394e8b837fe15b83182a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
