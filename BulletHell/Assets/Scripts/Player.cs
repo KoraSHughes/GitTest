@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     int speed = 10;
-    int health = 100;
     int bulletSpeed = 300;
     float time = 0f;
 
@@ -33,7 +32,7 @@ public class Player : MonoBehaviour
         float yVeloc = Input.GetAxis("Vertical") * speed;
         _rigidbody2D.velocity = new Vector2(xVeloc, yVeloc);
 
-        if (health <= 0) {
+        if (_gameManager.GetHealth() <= 0) {
             Instantiate(explosion, transform.position, Quaternion.identity);
             _audioSource.PlayOneShot(deathSfx);
             Destroy(gameObject);
@@ -51,15 +50,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void DecrHealth() {
-        _audioSource.PlayOneShot(dmgSfx);
-        health -= 20;
-        _gameManager.HealthDecr(20);
-    }
-
-    private void OnCollisionEnter2D(Collision2D col) {
-        if (col.gameObject.name == "Enemy(Clone)") {
+    /*private void OnTriggerEnter2D(Collision2D col) {
+        if (col.gameObject.tag == "Enemy") {
             DecrHealth();
         }
-    }
+    }*/
 }

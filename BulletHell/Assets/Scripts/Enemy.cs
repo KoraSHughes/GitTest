@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     GameManager _gameManager;
     Rigidbody2D _rigidbody2D;
 
+    SpriteRenderer _player_sprite;
+
     private bool collision_check_for_movement = false;
     private bool allowDamage = true;
     private float secSinceLastDamage = 0f;
@@ -35,6 +37,7 @@ public class Enemy : MonoBehaviour
             _gameManager.AddScore(pointVal);
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            Destroy(explosion);
         }
     }
 
@@ -63,6 +66,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    IEnumerator SpriteFlash()
+    {
+        _player_sprite.enabled = !_player_sprite.enabled;
+        yield return new WaitForSeconds(0.5f);
+    }
+
     // private void OnTriggerEnter2D(Collider2D col) {
     //     Debug.Log("WAA");
     //     if (col.CompareTag("Bullet")) {
@@ -77,7 +86,7 @@ public class Enemy : MonoBehaviour
     //     }
     // }
 
-    private void OnCollisionEnter2D(Collision2D col) {
+    private void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.CompareTag("Bullet")) {
             health -= 10;
             Destroy(col.gameObject);
@@ -85,6 +94,7 @@ public class Enemy : MonoBehaviour
             Debug.Log("Contact damage");
             _gameManager.HealthDecr(contactDamage);
             allowDamage = false;
+            _player_sprite = col.gameObject.GetComponent<SpriteRenderer>();
         }
         
         else {

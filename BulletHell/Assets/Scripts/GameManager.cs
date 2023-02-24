@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void HealthDecr(int points) {
-    health -= points;
-    healthUI.text = "HEALTH: " + health;
+        health -= points;
+        healthUI.text = "HEALTH: " + health;
     }
 
     public void Resume() {
@@ -59,6 +59,11 @@ public class GameManager : MonoBehaviour
                 Pause();
             }
         }
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 
 /*     public void handleContactAttack(int dmg) {
