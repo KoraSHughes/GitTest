@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 84607346080817110}
   - component: {fileID: 84607346080817111}
   - component: {fileID: 84607346080817107}
-  - component: {fileID: 84607346080817108}
   - component: {fileID: 84607346080817109}
   - component: {fileID: 84607346080817106}
   m_Layer: 0
@@ -111,32 +110,10 @@ MonoBehaviour:
   variant: N/A
   bullPrfb:
   - {fileID: 2680201578807638913, guid: 1b01e05fe8162904082df15e05fa94f0, type: 3}
-  - {fileID: 8212188522001257556, guid: 848ef6ad7b628be4588100d179cda9c9, type: 3}
   - {fileID: 8207374669812185017, guid: f5e05984bccd99a4a9b41d61737b5120, type: 3}
+  - {fileID: 8212188522001257556, guid: 848ef6ad7b628be4588100d179cda9c9, type: 3}
   spawnPoint: {fileID: 1295665774135157637}
   explosion: {fileID: 8572920328984617681, guid: 2293e2a54d03ed94681195a19ab5ceaa, type: 3}
---- !u!114 &84607346080817108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 84607346080817128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80c672e96de2b4157882ed375df023b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  variantMutates: 0
-  variantSwitchInterval: 1
-  colorArray:
-  - Red
-  - Green
-  - Blue
-  spriteArray:
-  - {fileID: 21300000, guid: c89a2c8a019e14245b9f181c7cd9f730, type: 3}
-  - {fileID: 21300000, guid: c1ad226f3aca81d4c863ae1ad0c38aa0, type: 3}
-  - {fileID: 21300000, guid: 147f58417a9a31f4781cbdf10086b296, type: 3}
 --- !u!50 &84607346080817109
 Rigidbody2D:
   serializedVersion: 4
