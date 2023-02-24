@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -35,6 +36,10 @@ public class GameManager : MonoBehaviour
     public void HealthDecr(int points) {
         health -= points;
         healthUI.text = "HEALTH: " + health;
+        if(health <= 0)
+        {
+            SceneManager.LoadScene("Game Over");
+        }
     }
 
     public void Resume() {
