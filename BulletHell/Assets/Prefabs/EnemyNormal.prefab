@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 147f58417a9a31f4781cbdf10086b296, type: 3}
-  m_Color: {r: 0.9960785, g: 0.058823533, b: 0.003921569, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c89a2c8a019e14245b9f181c7cd9f730, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -108,7 +108,6 @@ MonoBehaviour:
   enemyType: 0
   contactDamage: 10
   allowDamageInterval: 1
-  _laserTypes: []
   variant: N/A
   bullPrfb:
   - {fileID: 2680201578807638913, guid: 1b01e05fe8162904082df15e05fa94f0, type: 3}
@@ -128,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c672e96de2b4157882ed375df023b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  variantMutates: 1
+  variantMutates: 0
   variantSwitchInterval: 1
   colorArray:
   - Red
