@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 147f58417a9a31f4781cbdf10086b296, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9960785, g: 0.058823533, b: 0.003921569, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,8 +104,10 @@ MonoBehaviour:
   speed_y: 0
   health: 1
   pointVal: 1
+  enemyType: 0
   contactDamage: 10
   allowDamageInterval: 1
+  _laserTypes: []
   variant: N/A
   explosion: {fileID: 8572920328984617681, guid: 2293e2a54d03ed94681195a19ab5ceaa, type: 3}
 --- !u!114 &84607346080817108
