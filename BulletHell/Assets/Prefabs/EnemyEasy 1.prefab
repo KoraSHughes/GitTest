@@ -106,8 +106,9 @@ MonoBehaviour:
   enemyType: 2
   contactDamage: 10
   allowDamageInterval: 1
-  _laserTypes: []
   variant: N/A
+  bullPrfb: []
+  spawnPoint: {fileID: 0}
   explosion: {fileID: 8572920328984617681, guid: 2293e2a54d03ed94681195a19ab5ceaa, type: 3}
 --- !u!50 &3026108536712769127
 Rigidbody2D:
@@ -143,7 +144,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.21133333}
+  m_Offset: {x: -0.000000067055225, y: 0.005325049}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -154,5 +155,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.28264987, y: 0.40772623}
   m_EdgeRadius: 0
