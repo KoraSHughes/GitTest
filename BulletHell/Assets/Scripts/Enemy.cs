@@ -9,8 +9,9 @@ public class Enemy : MonoBehaviour
     public float speed_y = 0f;
     public int health = 1;
     public int pointVal = 1;
+    public int enemyType = 0;
 
-    // int bulletSpeed = 300;
+    int bulletSpeed = 300;
     float time = 0f;
 
     public int contactDamage = 10;
@@ -96,10 +97,24 @@ public class Enemy : MonoBehaviour
     // }
 
     private void OnTriggerEnter2D(Collider2D col) {
-        if (col.gameObject.CompareTag("Bullet")) {
+        if (col.gameObject.CompareTag("Bullet0") && enemyType == 0) {
             health -= 10;
             Destroy(col.gameObject);
-        } else if (col.gameObject.CompareTag("Player") && allowDamage) {
+        }
+        else if (col.gameObject.CompareTag("Bullet1") && enemyType == 1) {
+            health -= 10;
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.CompareTag("Bullet2") && enemyType == 2) {
+            health -= 10;
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.CompareTag("Player") && allowDamage) {
+            Debug.Log("Contact damage");
+            _gameManager.HealthDecr(contactDamage);
+            allowDamage = false;
+        }
+        else if (col.gameObject.CompareTag("Player") && allowDamage) {
             Debug.Log("Contact damage");
             _gameManager.HealthDecr(contactDamage);
             allowDamage = false;
