@@ -46,6 +46,27 @@ public class EnemySpawner : MonoBehaviour
                 yield return new WaitForSeconds(1.5f);
             }
         }
+        else if (SceneManager.GetActiveScene().name == "Level3")
+        {
+            for (int i = 0; i < 40; ++i)
+            {
+                Vector2 spawnPos = new Vector2(Random.Range(11, 15), Random.Range(-4f, 4f));
+                _enemyType = Random.Range(0, 100);
+                if(_enemyType >= 50)
+                {
+                    Instantiate(enemyPrefab[0], spawnPos, Quaternion.identity);
+                    _enemyColor = Random.Range(0,2);
+                    Instantiate(enemyPrefab[_enemyColor], spawnPos, Quaternion.identity);
+                }
+                else if(_enemyType < 50)
+                {
+                    Instantiate(enemyPrefab[1], spawnPos, Quaternion.identity);
+                    _enemyColor = Random.Range(3, 5);
+                    Instantiate(enemyPrefab[_enemyColor], spawnPos, Quaternion.identity);
+                }
+                yield return new WaitForSeconds(1f);
+            }
+        }
 
         while(true)
         {
