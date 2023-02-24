@@ -2494,18 +2494,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 6176955078774969152, guid: b9621dc27bec7e94bbd37ac7d96cf578, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6176955078774969152, guid: b9621dc27bec7e94bbd37ac7d96cf578, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6176955078774969152, guid: b9621dc27bec7e94bbd37ac7d96cf578, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -10
-      objectReference: {fileID: 0}
     - target: {fileID: 6176955078774969153, guid: b9621dc27bec7e94bbd37ac7d96cf578, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2522,13 +2510,8 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
-    - target: {fileID: 6176955078774969182, guid: b9621dc27bec7e94bbd37ac7d96cf578, type: 3}
-      propertyPath: m_enableWordWrapping
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5230076198270740652, guid: b9621dc27bec7e94bbd37ac7d96cf578, type: 3}
-    - {fileID: 6176955078774969153, guid: b9621dc27bec7e94bbd37ac7d96cf578, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b9621dc27bec7e94bbd37ac7d96cf578, type: 3}
 --- !u!1 &1574650865
 GameObject:

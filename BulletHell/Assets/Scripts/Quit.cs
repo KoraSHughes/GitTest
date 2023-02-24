@@ -5,16 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Quit : MonoBehaviour
 {
-
-    public void DoARestart()
-    {
-        //SceneManager.LoadScene("Level1");
-        SceneManager.LoadScene(1);
-    }
-
     public void DoAQuit(){
 #if !UNITY_WEBGL
         Application.Quit();
     }
 #endif
+
+    public void DoARestart()
+    {
+        SceneManager.LoadScene("Level1");
+    }
 }
