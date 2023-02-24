@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     float time = 0f;
 
     public Transform spawnPoint;
-    public GameObject bullPrfb;
+    public GameObject[] bulletArray;
     public GameObject explosion;
     GameManager _gameManager;
     Rigidbody2D _rigidbody2D;
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         }
 
         if (Input.GetButton("Jump") && time <= 0) {
-            GameObject newBull = Instantiate(bullPrfb, spawnPoint.position, Quaternion.identity);
+            GameObject newBull = Instantiate(bulletArray[currentIndex], spawnPoint.position, Quaternion.identity);
             newBull.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletSpeed, 0));
             time = 0.3f;
             _audioSource.PlayOneShot(shootSfx);
