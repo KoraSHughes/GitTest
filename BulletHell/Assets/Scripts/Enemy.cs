@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
     private bool allowDamage = true;
     private float secSinceLastDamage = 0f;
 
-    protected void Start()
+    void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _rigidbody2D.AddForce(new Vector2(-speed_x, 0));
@@ -47,18 +47,18 @@ public class Enemy : MonoBehaviour
         time = 1.0f;
     }
 
-    protected void check_and_handle_death()
+    void check_and_handle_death()
     {
         if (health <= 0) {
             _gameManager.AddScore(pointVal);
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            Destroy(explosion);
+            // Destroy(explosion);
         }
     }
 
     // handles enemy movement behavior.
-    protected void handle_movement()
+    void handle_movement()
     {
         if (collision_check_for_movement) {
             // change direction if collided with an upper or lower wall.
@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        check_and_handle_death();
+        // check_and_handle_death();
         handle_movement();
 
         if(time > 0f)
@@ -114,17 +114,19 @@ public class Enemy : MonoBehaviour
     }
 
     private void cycle(){
-        if (colorCycle == 0){
-            colorCycle = 1;
-            _current_sprite.color = new Color (0, 92, 255, 255);
-        }
-        else if (colorCycle == 1){
-            _current_sprite.color = new Color (34, 255, 0, 255);
-            colorCycle = 2;
-        }
-        else {
-            _current_sprite.color = new Color (255, 13, 0, 255);
-            colorCycle = 0;
+        if (enemyType != 4) {
+            if (colorCycle == 0){
+                colorCycle = 1;
+                _current_sprite.color = new Color (0, 92, 255, 255);
+            }
+            else if (colorCycle == 1){
+                _current_sprite.color = new Color (34, 255, 0, 255);
+                colorCycle = 2;
+            }
+            else {
+                _current_sprite.color = new Color (255, 13, 0, 255);
+                colorCycle = 0;
+            }
         }
     }
 
@@ -155,24 +157,28 @@ public class Enemy : MonoBehaviour
             health -= 10;
             Destroy(col.gameObject);
         }
-        else if (enemyType == 4 && ((col.gameObject.CompareTag("Bullet0") && colorCycle == 0) || (col.gameObject.CompareTag("Bullet1") && colorCycle == 1) || (col.gameObject.CompareTag("Bullet2") && colorCycle == 2))){
-            cycle();
+        // else if (enemyType == 4 && ((col.gameObject.CompareTag("Bullet0") && colorCycle == 0) || (col.gameObject.CompareTag("Bullet1") && colorCycle == 1) || (col.gameObject.CompareTag("Bullet2") && colorCycle == 2))){
+        else if (enemyType == 4 && ((col.gameObject.CompareTag("Bullet0") && variant == "Red") || (col.gameObject.CompareTag("Bullet1") && variant == "Blue") || (col.gameObject.CompareTag("Bullet2") && variant == "Green"))){
+            // cycle();
+            Debug.Log("You hit the dragon!!");
             health -= 10;
             Destroy(col.gameObject);
         }
         else if (col.gameObject.CompareTag("Player") && allowDamage) {
-            Debug.Log("Contact damage");
+            // Debug.Log("Contact damage");
             _gameManager.HealthDecr(contactDamage);
             allowDamage = false;
         }
         else if (col.gameObject.CompareTag("Player") && allowDamage) {
-            Debug.Log("Contact damage");
+            // Debug.Log("Contact damage");
             _gameManager.HealthDecr(contactDamage);
             allowDamage = false;
         }
         else {
             collision_check_for_movement = true;
         }
+
+        check_and_handle_death();
 
         // if (col.gameObject.CompareTag("End")) {
         //     Destroy(gameObject);

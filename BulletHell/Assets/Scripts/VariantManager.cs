@@ -8,7 +8,7 @@ public class VariantManager : MonoBehaviour
 
     // Hard enemy switches color randomly between 5 to 10 seconds, by default.
     public bool variantMutates = false;
-    public float variantSwitchInterval = 1.0f;
+    public float variantSwitchInterval = 5.0f;
     public string[] colorArray;
     public Sprite[] spriteArray;
     private float secSinceLastVariantChange = 0f;
