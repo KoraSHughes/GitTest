@@ -2744,6 +2744,7 @@ GameObject:
   - component: {fileID: 1844258068}
   - component: {fileID: 1844258067}
   - component: {fileID: 1844258069}
+  - component: {fileID: 1844258070}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -2912,9 +2913,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1782266142}
-        m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: QuitGame
+      - m_Target: {fileID: 1844258070}
+        m_TargetAssemblyTypeName: Quit, Assembly-CSharp
+        m_MethodName: DoAQuit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2923,4 +2924,16 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
+--- !u!114 &1844258070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844258065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4055b47189e04325858f71df4e200bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
