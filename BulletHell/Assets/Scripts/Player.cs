@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Current Type: " + currentIndex.ToString());
+        
         float xVeloc = Input.GetAxis("Horizontal") * speed;
         float yVeloc = Input.GetAxis("Vertical") * speed;
         _rigidbody2D.velocity = new Vector2(xVeloc, yVeloc);

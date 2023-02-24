@@ -2404,8 +2404,8 @@ MonoBehaviour:
   - {fileID: 3026108536712769126, guid: 6704b47730a4e42ce9be09480618a738, type: 3}
   - {fileID: 3026108536712769126, guid: 99b23e152a6b84d67937ceb0ccbea28c, type: 3}
   - {fileID: 84607346080817128, guid: aa52d944e703a4d7fa1ba5640b3658ea, type: 3}
-  - {fileID: 84607346080817128, guid: 2d370d1c31ae54ce2ac7f1755ef0c341, type: 3}
   - {fileID: 84607346080817128, guid: e019f999edede49759c30d172a3be94b, type: 3}
+  - {fileID: 84607346080817128, guid: 2d370d1c31ae54ce2ac7f1755ef0c341, type: 3}
   - {fileID: 1645544356436955017, guid: d7959b5afd9d74aceb008b3138c3c4c5, type: 3}
   nextLevel: Level3
 --- !u!1 &1570358653

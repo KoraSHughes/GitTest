@@ -27,17 +27,17 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Level2")
         {
-            for (int i = 0; i < 15; ++i)
+            for (int i = 0; i < 25; ++i)
             {
                 Vector2 spawnPos = new Vector2(Random.Range(11, 15), Random.Range(-4f, 4f));
                 _enemyType = Random.Range(0, 100);
-                if(_enemyType >= 33)
+                if(_enemyType >= 40)
                 {
                     Instantiate(enemyPrefab[0], spawnPos, Quaternion.identity);
                     _enemyColor = Random.Range(0,2);
                     Instantiate(enemyPrefab[_enemyColor], spawnPos, Quaternion.identity);
                 }
-                else if(_enemyType < 33)
+                else if(_enemyType < 40)
                 {
                     Instantiate(enemyPrefab[1], spawnPos, Quaternion.identity);
                     _enemyColor = Random.Range(3, 5);
