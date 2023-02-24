@@ -12,16 +12,13 @@ public class EnemySpawner : MonoBehaviour
 
     int _enemyType;
 
-    int _enemyColor;
-
     IEnumerator Start()
     {
         if(SceneManager.GetActiveScene().name == "Level1")
         {
             for (int i = 0; i < 20; ++i) {
                 Vector2 spawnPos = new Vector2(Random.Range(11,15), Random.Range(-4f,4f));
-                _enemyColor = Random.Range(0, 2);
-                Instantiate(enemyPrefab[_enemyColor], spawnPos, Quaternion.identity);
+                Instantiate(enemyPrefab[0], spawnPos, Quaternion.identity);
                 yield return new WaitForSeconds(1.5f);
             }
         }
@@ -33,13 +30,11 @@ public class EnemySpawner : MonoBehaviour
                 _enemyType = Random.Range(0, 100);
                 if(_enemyType >= 33)
                 {
-                    _enemyColor = Random.Range(0,2);
-                    Instantiate(enemyPrefab[_enemyColor], spawnPos, Quaternion.identity);
+                    Instantiate(enemyPrefab[0], spawnPos, Quaternion.identity);
                 }
                 else if(_enemyType < 33)
                 {
-                    _enemyColor = Random.Range(3, 5);
-                    Instantiate(enemyPrefab[_enemyColor], spawnPos, Quaternion.identity);
+                    Instantiate(enemyPrefab[1], spawnPos, Quaternion.identity);
                 }
                 yield return new WaitForSeconds(1.5f);
             }
@@ -47,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
 
         while(true)
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(20f);
             SceneManager.LoadScene(nextLevel);
         }
     }

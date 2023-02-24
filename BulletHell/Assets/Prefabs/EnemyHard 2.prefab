@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1645544356436955031}
   - component: {fileID: 1645544356436955030}
   m_Layer: 0
-  m_Name: EnemyHard
+  m_Name: EnemyHard 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6786a9b8f98329c47b6660dc380b13f8, type: 3}
-  m_Color: {r: 0.9960785, g: 0.058823533, b: 0.003921569, a: 1}
+  m_Color: {r: 0, g: 0.40000004, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   speed_y: 1
   health: 1
   pointVal: 1
-  enemyType: 4
+  enemyType: 1
   contactDamage: 10
   allowDamageInterval: 1
   _laserTypes: []
