@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public int health = 1;
     public int pointVal = 1;
     public int enemyType = 0;
+    private int colorCycle = 0;
 
     int bulletSpeed = -300;
     float time = 0f;
@@ -112,6 +113,21 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void cycle(){
+        if (colorCycle == 0){
+            colorCycle = 1;
+            _current_sprite.color = new Color (0, 92, 255, 255);
+        }
+        else if (colorCycle == 1){
+            _current_sprite.color = new Color (34, 255, 0, 255);
+            colorCycle = 2;
+        }
+        else {
+            _current_sprite.color = new Color (255, 13, 0, 255);
+            colorCycle = 0;
+        }
+    }
+
     // private void OnTriggerEnter2D(Collider2D col) {
     //     Debug.Log("WAA");
     //     if (col.CompareTag("Bullet")) {
@@ -136,6 +152,11 @@ public class Enemy : MonoBehaviour
             Destroy(col.gameObject);
         }
         else if (col.gameObject.CompareTag("Bullet2") && enemyType == 2) {
+            health -= 10;
+            Destroy(col.gameObject);
+        }
+        else if (enemyType == 4 && ((col.gameObject.CompareTag("Bullet0") && colorCycle == 0) || (col.gameObject.CompareTag("Bullet1") && colorCycle == 1) || (col.gameObject.CompareTag("Bullet2") && colorCycle == 2))){
+            cycle();
             health -= 10;
             Destroy(col.gameObject);
         }
